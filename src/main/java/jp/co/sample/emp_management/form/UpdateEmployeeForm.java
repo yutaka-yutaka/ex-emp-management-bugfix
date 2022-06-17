@@ -33,30 +33,18 @@ public class UpdateEmployeeForm {
 		return Integer.parseInt(dependentsCount);
 	}
 
-	/**
-	 * @return the id
-	 */
 	public String getId() {
 		return id;
 	}
 
-	/**
-	 * @param id the id to set
-	 */
 	public void setId(String id) {
 		this.id = id;
 	}
 
-	/**
-	 * @return the dependentsCount
-	 */
 	public String getDependentsCount() {
 		return dependentsCount;
 	}
 
-	/**
-	 * @param dependentsCount the dependentsCount to set
-	 */
 	public void setDependentsCount(String dependentsCount) {
 		this.dependentsCount = dependentsCount;
 	}
