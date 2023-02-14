@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Employee;
@@ -46,7 +48,7 @@ public class EmployeeController {
 	 * @param model モデル
 	 * @return 従業員一覧画面
 	 */
-	@RequestMapping("/showList")
+	@GetMapping("/showList")
 	public String showList(Model model) {
 		List<Employee> employeeList = employeeService.showList();
 		model.addAttribute("employeeList", employeeList);
@@ -63,7 +65,7 @@ public class EmployeeController {
 	 * @param model モデル
 	 * @return 従業員詳細画面
 	 */
-	@RequestMapping("/showDetail")
+	@GetMapping("/showDetail")
 	public String showDetail(String id, Model model) {
 		Employee employee = employeeService.showDetail(Integer.parseInt(id));
 		model.addAttribute("employee", employee);
@@ -79,7 +81,7 @@ public class EmployeeController {
 	 * @param form 従業員情報用フォーム
 	 * @return 従業員一覧画面へリダクレクト
 	 */
-	@RequestMapping("/update")
+	@PostMapping("/update")
 	public String update(@Validated UpdateEmployeeForm form, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			return showDetail(form.getId(), model);
