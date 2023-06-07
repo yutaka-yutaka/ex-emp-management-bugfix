@@ -93,3 +93,14 @@
 　　ページング機能を設けて欲しい。
 　　従業員は１ページにつき10名までの表示にして欲しい。
 　　(Springの機能は使っても使わなくてもどちらでも良い)
+
+【JUnitテスト】
+  (7-1)中級 ServiceクラスのJUnitテスト
+   以下のメソッドを今後、再帰テストやリファクタリングを行いたいため、
+　　Mockitoを使用したJUnitテストを用意して欲しい。
+　　⚪AdministratorServiceクラス
+　　　insert()メソッド
+　　　findByMailAddress()メソッド
+　　⚪EmployeeServiceクラス
+　　　showList()メソッド
+　　　showDetail()メソッド
