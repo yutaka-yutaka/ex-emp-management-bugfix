@@ -169,7 +169,7 @@ public class Employee {
 	public void setDependentsCount(Integer dependentsCount) {
 		this.dependentsCount = dependentsCount;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", image=" + image + ", gender=" + gender + ", hireDate="
@@ -177,5 +177,4 @@ public class Employee {
 				+ ", telephone=" + telephone + ", salary=" + salary + ", characteristics=" + characteristics
 				+ ", dependentsCount=" + dependentsCount + "]";
 	}
-
 }
