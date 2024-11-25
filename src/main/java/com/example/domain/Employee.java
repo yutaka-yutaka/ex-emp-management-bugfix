@@ -19,8 +19,6 @@ public class Employee {
 	private String gender;
 	/** 入社日 */
 	private Date hireDate;
-	/** フォーマット化した入社日 */
-	private String formattedHireDate;
 	/** メールアドレス */
 	private String mailAddress;
 	/** 郵便番号 */
@@ -171,15 +169,7 @@ public class Employee {
 	public void setDependentsCount(Integer dependentsCount) {
 		this.dependentsCount = dependentsCount;
 	}
-
-	public String getFormattedHireDate() {
-		return formattedHireDate;
-	}
-
-	public void setFormattedHireDate(String formattedHireDate) {
-		this.formattedHireDate = formattedHireDate;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", image=" + image + ", gender=" + gender + ", hireDate="
