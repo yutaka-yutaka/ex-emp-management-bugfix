@@ -18,7 +18,7 @@ public class LoginForm {
 	private String mailAddress;
 
 	/** パスワード */
-	@Size(min = 8, message = "パスワードは8文字以上16文字以下で入力してください")
+	@Size(min = 8, max = 16, message = "パスワードは8文字以上16文字以下で入力してください")
 	@NotBlank(message = "パスワードは必須です")
 	private String password;
 
