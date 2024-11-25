@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,13 @@ public class EmployeeService {
 	 */
 	public List<Employee> showList() {
 		List<Employee> employeeList = employeeRepository.findAll();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日");
+		for(Employee employee : employeeList){
+			if (employee.getHireDate() != null) {
+				String formattedDate = dateFormat.format(employee.getHireDate());
+				employee.setFormattedHireDate(formattedDate);
+			}
+		}
 		return employeeList;
 	}
 
