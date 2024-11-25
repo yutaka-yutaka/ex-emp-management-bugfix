@@ -12,9 +12,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.domain.Administrator;
 import com.example.domain.Employee;
 import com.example.form.UpdateEmployeeForm;
+import com.example.service.AdministratorService;
 import com.example.service.EmployeeService;
+
+import jakarta.servlet.http.HttpSession;
 
 /**
  * 従業員情報を操作するコントローラー.
@@ -28,6 +32,12 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeService;
+
+	@Autowired
+	private AdministratorService administratorService;
+
+	@Autowired
+	private HttpSession session;
 
 	/**
 	 * 使用するフォームオブジェクトをリクエストスコープに格納する.
@@ -52,6 +62,12 @@ public class EmployeeController {
 	public String showList(Model model) {
 		List<Employee> employeeList = employeeService.showList();
 		model.addAttribute("employeeList", employeeList);
+
+		// 管理者情報を取得
+		Integer administratorId = (Integer) session.getAttribute("administratorId");
+		Administrator administrator = administratorService.load(administratorId);
+		model.addAttribute("administratorName", administrator.getName());
+
 		return "employee/list";
 	}
 
@@ -69,6 +85,12 @@ public class EmployeeController {
 	public String showDetail(String id, Model model) {
 		Employee employee = employeeService.showDetail(Integer.parseInt(id));
 		model.addAttribute("employee", employee);
+
+		// 管理者名の取得
+		Integer administratorId = (Integer) session.getAttribute("administratorId");
+		Administrator administrator = administratorService.load(administratorId);
+		model.addAttribute("administratorName", administrator.getName());
+		
 		return "employee/detail";
 	}
 
