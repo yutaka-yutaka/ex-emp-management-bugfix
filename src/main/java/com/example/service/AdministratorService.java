@@ -25,8 +25,13 @@ public class AdministratorService {
 	 * 
 	 * @param administrator 管理者情報
 	 */
-	public void insert(Administrator administrator) {
+	public boolean insert(Administrator administrator) {
+		// メールアドレスの重複を確認
+		if (administratorRepository.findByMailAddress(administrator.getMailAddress()) != null) {
+			return false;
+		}
 		administratorRepository.insert(administrator);
+		return true;
 	}
 
 	/**
