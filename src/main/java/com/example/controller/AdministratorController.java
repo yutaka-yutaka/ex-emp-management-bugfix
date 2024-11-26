@@ -83,7 +83,12 @@ public class AdministratorController {
 		Administrator administrator = new Administrator();
 		// フォームからドメインにプロパティ値をコピー
 		BeanUtils.copyProperties(form, administrator);
-		administratorService.insert(administrator);
+		try {
+			administratorService.insert(administrator);
+		} catch (IllegalArgumentException e) {
+			result.rejectValue("mailAddress", null, e.getMessage());
+			return "administrator/insert";
+		}
 		return "redirect:";
 	}
 
