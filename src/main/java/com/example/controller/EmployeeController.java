@@ -64,9 +64,8 @@ public class EmployeeController {
 		model.addAttribute("employeeList", employeeList);
 
 		// 管理者情報を取得
-		Integer administratorId = (Integer) session.getAttribute("administratorId");
-		Administrator administrator = administratorService.load(administratorId);
-		model.addAttribute("administratorName", administrator.getName());
+		Administrator administrator = (Administrator) session.getAttribute("administratorId");
+		session.setAttribute("administratorName", administrator.getName());
 
 		return "employee/list";
 	}
@@ -87,10 +86,9 @@ public class EmployeeController {
 		model.addAttribute("employee", employee);
 
 		// 管理者名の取得
-		Integer administratorId = (Integer) session.getAttribute("administratorId");
-		Administrator administrator = administratorService.load(administratorId);
-		model.addAttribute("administratorName", administrator.getName());
-		
+		Administrator administrator = (Administrator) session.getAttribute("administratorId");
+		session.setAttribute("administratorName", administrator.getName());
+
 		return "employee/detail";
 	}
 
