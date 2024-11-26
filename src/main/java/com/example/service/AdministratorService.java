@@ -30,6 +30,16 @@ public class AdministratorService {
 	}
 
 	/**
+	 * 管理者情報を取得します.
+	 * 
+	 * @param administrator 管理者情報
+	 * @return
+	 */
+	public Administrator load(Integer id) {
+		return administratorRepository.load(id);
+	}
+
+	/**
 	 * ログインをします.
 	 * 
 	 * @param mailAddress メールアドレス

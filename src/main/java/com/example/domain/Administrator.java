@@ -1,12 +1,14 @@
 package com.example.domain;
 
+import java.io.Serializable;
+
 /**
  * 管理者情報を表すドメイン.
  * 
  * @author igamasayuki
  * 
  */
-public class Administrator {
+public class Administrator implements Serializable  {
 	/** id(主キー) */
 	private Integer id;
 	/** 名前 */
